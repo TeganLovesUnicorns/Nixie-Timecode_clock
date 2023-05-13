@@ -1,8 +1,10 @@
 #ifndef _SMPTE_LTC_H_
 #define _SMPTE_LTC_H_
 
-#include <cstdint>
-#include <string>
+// #include <cstdint>
+// #include <string>
+
+using namespace std;
 
 class Timecode {
 public:

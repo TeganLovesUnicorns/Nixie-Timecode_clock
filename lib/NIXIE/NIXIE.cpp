@@ -1,5 +1,5 @@
 /*
-  NIXIE.h - Library for driving a Soviet Era Nixie Driver.
+  NIXIE.h - Library for driving a Soviet Era K155ID1 Nixie Driver.
   Created by Tegan Rehbein, May, 2023.
 */
 #include <Arduino.h>
@@ -25,6 +25,7 @@ void Nixie::setup() {
 };
 
 void Nixie::write(uint8_t number) {
+
     int digits [10][4] {
         {0,0,0,0},
         {0,0,0,1},
@@ -37,4 +38,12 @@ void Nixie::write(uint8_t number) {
         {1,0,0,0},
         {1,0,0,1}
     };
+        if (number < 10)
+        {
+            digitalWrite(_A_pin, digits[number][3]);
+            digitalWrite(_B_pin, digits[number][2]);
+            digitalWrite(_C_pin, digits[number][1]);
+            digitalWrite(_D_pin, digits[number][0]);
+        }
+        
 };
